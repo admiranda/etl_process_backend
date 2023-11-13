@@ -2,8 +2,10 @@ from flask import Flask, jsonify, abort
 import os
 import json
 from utils.utils import read_json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 
 
