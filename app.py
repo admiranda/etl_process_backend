@@ -22,5 +22,4 @@ def get_passengers():
     data = read_json('path/to/your/passengers.json')
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
