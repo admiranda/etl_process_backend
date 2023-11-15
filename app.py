@@ -21,17 +21,17 @@ def get_flights():
 
 @app.route('/api/airports', methods=['GET'])
 def get_airports():
-    data = read_json('backend/airports_data.json')
+    data = read_json('airports_data.json')
     return jsonify(data)
 
 @app.route('/api/aircrafts', methods=['GET'])
 def get_aircrafts():
-    data = read_json('backend/aircrafts_data.json')
+    data = read_json('aircrafts_data.json')
     return jsonify(data)
 
 @app.route('/api/passengers', methods=['GET'])
 def get_passengers():
-    data = read_json('backend/passengers_data.json')
+    data = read_json('passengers_data.json')
     return jsonify(data)
 
 
