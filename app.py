@@ -48,7 +48,8 @@ def get_passengers_by_flight(flightNumber):
     filtered_tickets = [ticket for ticket in tickets if ticket['flightNumber'] == int(flightNumber)]
 
     # Extraer los IDs de pasajeros de los tickets filtrados
-    passenger_ids = {ticket['passengerID'] for ticket in filtered_tickets}
+    # Convertir a string para coincidir con los IDs en los datos de pasajeros
+    passenger_ids = {str(ticket['passengerID']) for ticket in filtered_tickets}
 
     # Cargar todos los pasajeros
     passengers = read_json('passengers_data.json')
@@ -56,6 +57,7 @@ def get_passengers_by_flight(flightNumber):
     flight_passengers = [passenger for passenger in passengers if passenger['passengerID'] in passenger_ids]
 
     return jsonify(flight_passengers)
+
 
 
 
