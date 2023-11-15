@@ -47,17 +47,17 @@ def get_passengers_by_flight(flightNumber):
 
     filtered_tickets = [ticket for ticket in tickets if ticket['flightNumber'] == int(flightNumber)]
     passenger_ids = {str(ticket['passengerID']) for ticket in filtered_tickets}
-
-    # Crear un diccionario para mapear passengerID a seatNumber
     seat_map = {str(ticket['passengerID']): ticket['seatNumber'] for ticket in filtered_tickets}
 
-    # Agregar seatNumber a los datos del pasajero
     flight_passengers = []
     for passenger in passengers:
         if passenger['passengerID'] in passenger_ids:
             passenger_with_seat = passenger.copy()
             passenger_with_seat['seatNumber'] = seat_map.get(passenger['passengerID'], 'N/A')
             flight_passengers.append(passenger_with_seat)
+
+    # Ordenar los pasajeros por lastName antes de devolverlos
+    flight_passengers.sort(key=lambda x: x['lastName'])
 
     return jsonify(flight_passengers)
 
