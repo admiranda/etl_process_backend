@@ -42,21 +42,25 @@ def get_tickets_by_flight(flightNumber):
 
 @app.route('/api/passengers/byflight/<flightNumber>', methods=['GET'])
 def get_passengers_by_flight(flightNumber):
-    # Cargar todos los tickets
     tickets = read_json('tickets_data.json')
-    # Filtrar tickets por número de vuelo
-    filtered_tickets = [ticket for ticket in tickets if ticket['flightNumber'] == int(flightNumber)]
+    passengers = read_json('passengers_data.json')
 
-    # Extraer los IDs de pasajeros de los tickets filtrados
-    # Convertir a string para coincidir con los IDs en los datos de pasajeros
+    filtered_tickets = [ticket for ticket in tickets if ticket['flightNumber'] == int(flightNumber)]
     passenger_ids = {str(ticket['passengerID']) for ticket in filtered_tickets}
 
-    # Cargar todos los pasajeros
-    passengers = read_json('passengers_data.json')
-    # Filtrar los pasajeros que están en los tickets
-    flight_passengers = [passenger for passenger in passengers if passenger['passengerID'] in passenger_ids]
+    # Crear un diccionario para mapear passengerID a seatNumber
+    seat_map = {str(ticket['passengerID']): ticket['seatNumber'] for ticket in filtered_tickets}
+
+    # Agregar seatNumber a los datos del pasajero
+    flight_passengers = []
+    for passenger in passengers:
+        if passenger['passengerID'] in passenger_ids:
+            passenger_with_seat = passenger.copy()
+            passenger_with_seat['seatNumber'] = seat_map.get(passenger['passengerID'], 'N/A')
+            flight_passengers.append(passenger_with_seat)
 
     return jsonify(flight_passengers)
+
 
 
 
