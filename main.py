@@ -3,7 +3,6 @@ import json
 import os
 import xml.etree.ElementTree as ET
 import yaml
-from dash import Dash, html, dcc, Input, Output, dash_table
 import plotly.express as px
 import csv
 from datetime import datetime
