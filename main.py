@@ -7,6 +7,7 @@ import plotly.express as px
 import csv
 from datetime import datetime
 import locale
+from math import sqrt
 
 # Carga de datos
 def clean_xml_file(file_path):
@@ -29,6 +30,9 @@ def preprocess_csv(input_file_path, output_file_path):
                 row[2] = row[2] + ',' + row[3]
                 del row[3]
             writer.writerow(row)
+
+def calcular_distancia_euclidiana(lat1, lon1, lat2, lon2):
+    return sqrt((lat2 - lat1) ** 2 + (lon2 - lon1) ** 2)
 
 def cargar_datos_aeropuertos():
     # Preprocesar el archivo CSV antes de leerlo
@@ -136,24 +140,24 @@ def integrar_datos():
     # Unimos los vuelos con la cantidad de pasajeros
     flights_df = flights_df.merge(passenger_count_df, on='flightNumber', how='left')
 
-    # Unimos los vuelos con los aviones y aeropuertos
+     # Unimos los vuelos con los aviones y aeropuertos
     flights_df = flights_df.merge(aircrafts_df, on='aircraftID', how='left')
     flights_df = flights_df.merge(
-        airports_df.rename(columns={'airportIATA': 'originIATA', 'name': 'originName'}),
+        airports_df.rename(columns={'airportIATA': 'originIATA', 'name': 'originName', 'lat': 'originLat', 'lon': 'originLon'}),
         on='originIATA',
         how='left'
     )
     flights_df = flights_df.merge(
-        airports_df.rename(columns={'airportIATA': 'destinationIATA', 'name': 'destinationName'}),
+        airports_df.rename(columns={'airportIATA': 'destinationIATA', 'name': 'destinationName', 'lat': 'destinationLat', 'lon': 'destinationLon'}),
         on='destinationIATA',
         how='left'
     )
 
-    # Asumiendo que se tiene una función 'calcular_distancia' que retorna la distancia entre dos puntos geográficos
-    # flights_df['distance'] = flights_df.apply(
-    #     lambda row: calcular_distancia(row['lat_x'], row['lon_x'], row['lat_y'], row['lon_y']), axis=1
-    # )
-
+    # Calcular la distancia euclidiana para cada vuelo
+    flights_df['distance'] = flights_df.apply(
+        lambda row: calcular_distancia_euclidiana(row['originLat'], row['originLon'], row['destinationLat'], row['destinationLon']),
+        axis=1
+    )
     # Ordenamos los datos
     flights_df.sort_values(by=['year', 'month', 'flightNumber'], inplace=True)
 
@@ -165,33 +169,3 @@ final_df = integrar_datos()
 final_df.sort_values(by=['year', 'month', 'flightNumber'], inplace=True)
 final_df.to_json('processed_data.json', orient='records')
 
-
-"""
-# Aplicación Dash
-app = Dash(__name__)
-
-
-
-app.layout = html.Div([
-    dash_table.DataTable(
-        id='tabla-vuelos',
-        columns=[{"name": i, "id": i} for i in final_df.columns],
-        data=final_df.to_dict('records'),
-        page_size=15,  # paginación de 15 vuelos
-        sort_action="native",  # habilita la clasificación
-        sort_mode="multi",  # permite la clasificación multi-columna
-        sort_by=[  # establece el orden por defecto
-            {'column_id': 'year', 'direction': 'asc'},
-            {'column_id': 'month', 'direction': 'asc'},
-            {'column_id': 'flightNumber', 'direction': 'asc'}
-        ],
-        # Añade las siguientes líneas si deseas que la paginación y el orden puedan ser modificados por el usuario
-        page_action='native',  # permite a los usuarios cambiar la paginación
-        # sort_as_null=['year', 'month', 'flightNumber'],  # permite a los usuarios quitar el orden predeterminado
-    )
-])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
-
-"""

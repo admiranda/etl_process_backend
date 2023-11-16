@@ -14,7 +14,7 @@ def ejecutar_main_py():
     print("Ejecutando main.py")
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=ejecutar_main_py, trigger="interval", minutes=2)
+scheduler.add_job(func=ejecutar_main_py, trigger="interval", minutes=20)
 scheduler.start()
 
 
