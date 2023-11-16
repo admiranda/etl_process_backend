@@ -1,13 +1,21 @@
-from flask import Flask, jsonify, abort
-import os
-import json
+from flask import Flask, jsonify
+from apscheduler.schedulers.background import BackgroundScheduler
+import subprocess
 from utils.utils import read_json
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
 
+def ejecutar_main_py():
+    # Ejecutar main.py como un proceso separado
+    subprocess.run(["python", "main.py"])
+    print("Ejecutando main.py")
 
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=ejecutar_main_py, trigger="interval", hours=12)
+scheduler.start()
 
 
 @app.route('/')
@@ -62,6 +70,11 @@ def get_passengers_by_flight(flightNumber):
     return jsonify(flight_passengers)
 
 
+if __name__ == '__main__':
+    try:
+        app.run(use_reloader=False)
+    except (KeyboardInterrupt, SystemExit):
+        scheduler.shutdown()
 
 
 
