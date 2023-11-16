@@ -1,0 +1,212 @@
+[
+  {
+    "flightNumber": "31305",
+    "originIATA": "SSH",
+    "destinationIATA": "CGH",
+    "airline": "Iberia",
+    "aircraftID": "AXYPKGPZE1KT97071"
+  },
+  {
+    "flightNumber": "49511",
+    "originIATA": "LAD",
+    "destinationIATA": "MTY",
+    "airline": "Emirates",
+    "aircraftID": "W8PPAP0F4BJ428220"
+  },
+  {
+    "flightNumber": "51411",
+    "originIATA": "TPE",
+    "destinationIATA": "KRT",
+    "airline": "Qatar",
+    "aircraftID": "A15ZTED9YHEG96097"
+  },
+  {
+    "flightNumber": "54694",
+    "originIATA": "CMN",
+    "destinationIATA": "ZQN",
+    "airline": "Emirates",
+    "aircraftID": "9D8X256PNPLK28897"
+  },
+  {
+    "flightNumber": "36763",
+    "originIATA": "VIE",
+    "destinationIATA": "MAD",
+    "airline": "Iberia",
+    "aircraftID": "HUDEATCK9PLW41407"
+  },
+  {
+    "flightNumber": "69311",
+    "originIATA": "AEP",
+    "destinationIATA": "CNF",
+    "airline": "Iberia",
+    "aircraftID": "C3SSNDKEYSLN89314"
+  },
+  {
+    "flightNumber": "74995",
+    "originIATA": "DFW",
+    "destinationIATA": "GYN",
+    "airline": "LATAM",
+    "aircraftID": "G4YHB0JVFVDT88069"
+  },
+  {
+    "flightNumber": "83423",
+    "originIATA": "SJO",
+    "destinationIATA": "GYN",
+    "airline": "Iberia",
+    "aircraftID": "2CF7U7ELETZ390028"
+  },
+  {
+    "flightNumber": "57091",
+    "originIATA": "PHX",
+    "destinationIATA": "RUN",
+    "airline": "LATAM",
+    "aircraftID": "C409G6YTW5WB83745"
+  },
+  {
+    "flightNumber": "83702",
+    "originIATA": "CGH",
+    "destinationIATA": "CKG",
+    "airline": "Qatar",
+    "aircraftID": "BXNJ43PPBVV959879"
+  },
+  {
+    "flightNumber": "72151",
+    "originIATA": "PHE",
+    "destinationIATA": "CNS",
+    "airline": "American",
+    "aircraftID": "3NWEYV02XLDA59540"
+  },
+  {
+    "flightNumber": "47748",
+    "originIATA": "BWI",
+    "destinationIATA": "CLT",
+    "airline": "Emirates",
+    "aircraftID": "4KXT4ZL1U5CE78453"
+  },
+  {
+    "flightNumber": "83915",
+    "originIATA": "SJO",
+    "destinationIATA": "ORD",
+    "airline": "LATAM",
+    "aircraftID": "6RGKYBX6NRP152682"
+  },
+  {
+    "flightNumber": "51144",
+    "originIATA": "DTW",
+    "destinationIATA": "MDW",
+    "airline": "LATAM",
+    "aircraftID": "0NTCA9YNCTFJ12125"
+  },
+  {
+    "flightNumber": "50381",
+    "originIATA": "DUR",
+    "destinationIATA": "ORL",
+    "airline": "American",
+    "aircraftID": "4KFLE4WZHTPX95615"
+  },
+  {
+    "flightNumber": "65121",
+    "originIATA": "MEL",
+    "destinationIATA": "KMG",
+    "airline": "British Airways",
+    "aircraftID": "RWXVXRWA1LRV88292"
+  },
+  {
+    "flightNumber": "54401",
+    "originIATA": "PMR",
+    "destinationIATA": "AGP",
+    "airline": "Emirates",
+    "aircraftID": "S2GK1KUBUUGE70454"
+  },
+  {
+    "flightNumber": "46130",
+    "originIATA": "MIR",
+    "destinationIATA": "GDL",
+    "airline": "American",
+    "aircraftID": "0ZAG0DDSA1MZ19596"
+  },
+  {
+    "flightNumber": "44035",
+    "originIATA": "KMG",
+    "destinationIATA": "MCY",
+    "airline": "LATAM",
+    "aircraftID": "ZX3UVD975FJR12191"
+  },
+  {
+    "flightNumber": "67909",
+    "originIATA": "CPH",
+    "destinationIATA": "PLZ",
+    "airline": "Iberia",
+    "aircraftID": "M8P230C64PN280433"
+  },
+  {
+    "flightNumber": "26039",
+    "originIATA": "NBO",
+    "destinationIATA": "IST",
+    "airline": "American",
+    "aircraftID": "7UNCTSWAZGJ764430"
+  },
+  {
+    "flightNumber": "52257",
+    "originIATA": "PMR",
+    "destinationIATA": "NRT",
+    "airline": "American",
+    "aircraftID": "XTZNPZ5LSALT55724"
+  },
+  {
+    "flightNumber": "23199",
+    "originIATA": "LGW",
+    "destinationIATA": "PVG",
+    "airline": "Emirates",
+    "aircraftID": "5YR1V73F33C962780"
+  },
+  {
+    "flightNumber": "79679",
+    "originIATA": "SYD",
+    "destinationIATA": "EWR",
+    "airline": "British Airways",
+    "aircraftID": "15TZX236WUPR40508"
+  },
+  {
+    "flightNumber": "93675",
+    "originIATA": "CGK",
+    "destinationIATA": "HKG",
+    "airline": "LATAM",
+    "aircraftID": "3SSKHFD6X6YU33876"
+  },
+  {
+    "flightNumber": "57089",
+    "originIATA": "SZX",
+    "destinationIATA": "LGW",
+    "airline": "British Airways",
+    "aircraftID": "PJ6WGHPZ34MC56149"
+  },
+  {
+    "flightNumber": "19218",
+    "originIATA": "CDG",
+    "destinationIATA": "DKR",
+    "airline": "Emirates",
+    "aircraftID": "U26B4E6N6VYL23771"
+  },
+  {
+    "flightNumber": "52104",
+    "originIATA": "CNS",
+    "destinationIATA": "CGH",
+    "airline": "Iberia",
+    "aircraftID": "MURCW6AXXHC062375"
+  },
+  {
+    "flightNumber": "12225",
+    "originIATA": "ACC",
+    "destinationIATA": "FOR",
+    "airline": "American",
+    "aircraftID": "H9NT4JFMELB177496"
+  },
+  {
+    "flightNumber": "93962",
+    "originIATA": "MRU",
+    "destinationIATA": "CNS",
+    "airline": "Emirates",
+    "aircraftID": "Y2CN192VMZV832065"
+  }
+]
