@@ -143,12 +143,12 @@ def integrar_datos():
      # Unimos los vuelos con los aviones y aeropuertos
     flights_df = flights_df.merge(aircrafts_df, on='aircraftID', how='left')
     flights_df = flights_df.merge(
-        airports_df.rename(columns={'airportIATA': 'originIATA', 'name': 'originName', 'lat': 'originLat', 'lon': 'originLon'}),
+        airports_df.rename(columns={'airportIATA': 'originIATA', 'city': 'originCity', 'lat': 'originLat', 'lon': 'originLon'}),
         on='originIATA',
         how='left'
     )
     flights_df = flights_df.merge(
-        airports_df.rename(columns={'airportIATA': 'destinationIATA', 'name': 'destinationName', 'lat': 'destinationLat', 'lon': 'destinationLon'}),
+        airports_df.rename(columns={'airportIATA': 'destinationIATA', 'city': 'destinationCity', 'lat': 'destinationLat', 'lon': 'destinationLon'}),
         on='destinationIATA',
         how='left'
     )
